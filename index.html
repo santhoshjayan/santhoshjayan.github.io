@@ -98,6 +98,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
+            transition: all 0.3s;
         }
         .toggle-btn:hover {
             background-color: #ffcc00;
@@ -115,7 +116,8 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
-    <button class="toggle-btn" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+    <button class="toggle-btn" onclick="toggleDarkMode()">Enable Dark Mode</button>
+    
     <div class="container">
         <section id="about" class="section">
             <h2>About Me</h2>
@@ -161,10 +163,28 @@
     <footer>
         <p>&copy; 2025 Santhosh Kumar JP | Cybersecurity Enthusiast | Securing Digital Frontiers</p>
     </footer>
+    
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
+
+            // Save user preference
+            if (document.body.classList.contains("dark-mode")) {
+                localStorage.setItem("theme", "dark");
+                document.querySelector(".toggle-btn").textContent = "Disable Dark Mode";
+            } else {
+                localStorage.setItem("theme", "light");
+                document.querySelector(".toggle-btn").textContent = "Enable Dark Mode";
+            }
         }
+
+        // Load user preference on page load
+        window.onload = function () {
+            if (localStorage.getItem("theme") === "dark") {
+                document.body.classList.add("dark-mode");
+                document.querySelector(".toggle-btn").textContent = "Disable Dark Mode";
+            }
+        };
     </script>
 </body>
 </html>
