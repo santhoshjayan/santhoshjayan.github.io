@@ -12,7 +12,7 @@
             --highlight-color: #64ffda;
         }
 
-        .dark-mode {
+        body.dark-mode {
             --bg-color: #ffffff;
             --text-color: #000000;
             --card-bg: #f0f0f0;
@@ -27,6 +27,7 @@
             color: var(--text-color);
             transition: all 0.3s ease-in-out;
         }
+
         header {
             background: var(--card-bg);
             padding: 20px;
@@ -37,6 +38,7 @@
             left: 0;
             z-index: 1000;
         }
+
         nav a {
             margin: 0 15px;
             color: var(--highlight-color);
@@ -44,14 +46,17 @@
             font-weight: bold;
             transition: color 0.3s;
         }
+
         nav a:hover {
             color: #ffcc00;
         }
+
         .container {
             width: 80%;
             margin: auto;
             padding: 100px 20px 20px;
         }
+
         .section {
             margin: 40px 0;
             padding: 20px;
@@ -60,9 +65,11 @@
             box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
             transition: transform 0.3s;
         }
+
         .section:hover {
             transform: scale(1.02);
         }
+
         .skills span {
             background: var(--highlight-color);
             color: var(--bg-color);
@@ -72,14 +79,17 @@
             display: inline-block;
             font-weight: bold;
         }
+
         .projects ul li {
             padding: 10px 0;
             border-bottom: 1px solid var(--highlight-color);
         }
+
         .contact p {
             font-size: 1.2em;
             font-weight: bold;
         }
+
         footer {
             text-align: center;
             padding: 20px;
@@ -87,6 +97,7 @@
             margin-top: 20px;
             font-size: 1.1em;
         }
+
         .toggle-btn {
             background-color: var(--highlight-color);
             color: var(--bg-color);
@@ -100,6 +111,7 @@
             right: 20px;
             transition: all 0.3s;
         }
+
         .toggle-btn:hover {
             background-color: #ffcc00;
         }
@@ -116,13 +128,15 @@
             <a href="#contact">Contact</a>
         </nav>
     </header>
+
     <button class="toggle-btn" onclick="toggleDarkMode()">Enable Dark Mode</button>
-    
+
     <div class="container">
         <section id="about" class="section">
             <h2>About Me</h2>
             <p>Security Tester at SpeeHive with expertise in penetration testing, vulnerability assessments, and security policy enforcement. Passionate about protecting digital assets, securing applications, and implementing Zero Trust Architecture.</p>
         </section>
+
         <section id="skills" class="section">
             <h2>Skills</h2>
             <div class="skills">
@@ -143,6 +157,7 @@
                 <span>Incident Response</span>
             </div>
         </section>
+
         <section id="projects" class="section">
             <h2>Projects</h2>
             <ul class="projects">
@@ -154,21 +169,22 @@
                 <li>Microsoft 365 Security Hardening</li>
             </ul>
         </section>
+
         <section id="contact" class="section contact">
             <h2>Contact</h2>
             <p>Email: santhoshjayan99@gmail.com</p>
             <p>LinkedIn: <a href="https://linkedin.com/in/santhoshjp" target="_blank" style="color: var(--highlight-color); text-decoration: none;">linkedin.com/in/santhoshjp</a></p>
         </section>
     </div>
+
     <footer>
         <p>&copy; 2025 Santhosh Kumar JP | Cybersecurity Enthusiast | Securing Digital Frontiers</p>
     </footer>
-    
+
     <script>
         function toggleDarkMode() {
             document.body.classList.toggle("dark-mode");
 
-            // Save user preference
             if (document.body.classList.contains("dark-mode")) {
                 localStorage.setItem("theme", "dark");
                 document.querySelector(".toggle-btn").textContent = "Disable Dark Mode";
@@ -178,7 +194,6 @@
             }
         }
 
-        // Load user preference on page load
         window.onload = function () {
             if (localStorage.getItem("theme") === "dark") {
                 document.body.classList.add("dark-mode");
